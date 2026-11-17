@@ -1,0 +1,717 @@
+[
+  {
+    "name": "Jakeschincariol/founder-skill",
+    "url": "https://github.com/Jakeschincariol/founder-skill",
+    "head": "fd9385b0cfe1b96bebce3898fbd506d73eff5a9d",
+    "candidatePaths": [
+      "README.md",
+      "skills/"
+    ],
+    "decision": "Material",
+    "reason": "Material — integrado: se copió el script MIT founder-cfo/unit_economics.py bajo third_party/founder-skill; AI lo ejecuta de forma opcional y pruebas verifican margen y punto de equilibrio."
+  },
+  {
+    "name": "Jakeschincariol/instagram-agent-skill",
+    "url": "https://github.com/Jakeschincariol/instagram-agent-skill",
+    "head": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+    "candidatePaths": [
+      "README.md",
+      "skills/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "affaan-m/ECC",
+    "url": "https://github.com/affaan-m/ECC",
+    "head": "3f14a103a8694e51c1df9a806217a6d0b5f7a6f7",
+    "candidatePaths": [
+      "README.md",
+      "agents/",
+      "skills/",
+      "hooks/",
+      "rules/",
+      "SECURITY.md"
+    ],
+    "decision": "Material",
+    "reason": "Material — referencia de diseño: se revisaron layouts de agentes, skills, hooks y reglas de seguridad; no se importó el harness completo."
+  },
+  {
+    "name": "Egonex-AI/Understand-Anything",
+    "url": "https://github.com/Egonex-AI/Understand-Anything",
+    "head": "b861852dda79273bd9d2e01c3160d42e2df510d2",
+    "candidatePaths": [
+      "README.md",
+      "understand-anything-plugin/",
+      "docs/",
+      "tests/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "walkinglabs/awesome-harness-engineering",
+    "url": "https://github.com/walkinglabs/awesome-harness-engineering",
+    "head": "ae9024f0bffff9fd394f6a385f05811a1e973ab1",
+    "candidatePaths": [
+      "README.md",
+      "docs"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "ai-boost/awesome-harness-engineering",
+    "url": "https://github.com/ai-boost/awesome-harness-engineering",
+    "head": "9fde57d0cfb47a3e85e80d96982023d75f949574",
+    "candidatePaths": [
+      "AGENTS.md",
+      "templates/AGENTS.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "volcengine/OpenViking",
+    "url": "https://github.com/volcengine/OpenViking",
+    "head": "8f113dc508ec67bd6215c5b49f12b8e910bfd00a",
+    "candidatePaths": [
+      "README.md",
+      "docs/en/api/16-memory.md",
+      "docs/en/gateway/11-security-and-data.md",
+      "src/",
+      "openviking/"
+    ],
+    "decision": "Material",
+    "reason": "Material — adaptación independiente: se usó como referencia de recuperar pasajes con procedencia; la implementación local extrae un pasaje, conserva clave/fuente/fecha y marca parcialidad sin copiar implementación AGPL."
+  },
+  {
+    "name": "mukul975/Anthropic-Cybersecurity-Skills",
+    "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+    "head": "54a798831d2266a3ca61ce68a7acb80b81160d57",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "index.json",
+      "mappings/"
+    ],
+    "decision": "Material",
+    "reason": "Material — integrado: se adaptó su plantilla de skill Apache-2.0 en third_party/cybersecurity-skills/template.md; se reutiliza la estructura, no el catálogo de 817 skills."
+  },
+  {
+    "name": "rohitg00/agentmemory",
+    "url": "https://github.com/rohitg00/agentmemory",
+    "head": "54bbb7cd351e222a7e29e68b37076e97297eba6a",
+    "candidatePaths": [
+      "README.md",
+      "DESIGN.md",
+      "src/",
+      "packages/mcp/",
+      "docs/graph-search.md"
+    ],
+    "decision": "Material",
+    "reason": "Material — integrado: helper acotado supersededAt en third_party/agentmemory y estado de memoria actualizado con hora de supersesión; se documenta atribución/licencia."
+  },
+  {
+    "name": "vercel-labs/agent-browser",
+    "url": "https://github.com/vercel-labs/agent-browser",
+    "head": "b06e2533ba9b3823b8a96c859d455cb55f4d7893",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "docs/content/docs/security.mdx",
+      "cli/"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "lwthiker/curl-impersonate",
+    "url": "https://github.com/lwthiker/curl-impersonate",
+    "head": "822dbefe42e077fb9f3f16eaf0eca24944e5aadc",
+    "candidatePaths": [
+      "README.md",
+      "chrome/",
+      "firefox/"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "alirezamika/autoscraper",
+    "url": "https://github.com/alirezamika/autoscraper",
+    "head": "68a818158c673bf320a8569da10a8b979c1d23fe",
+    "candidatePaths": [
+      "README.md",
+      "autoscraper/"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "Skyvern-AI/skyvern",
+    "url": "https://github.com/Skyvern-AI/skyvern",
+    "head": "b85e75530a52ad22f988dcb16f601a3fc96a5dda",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "integrations/"
+    ],
+    "decision": "Diferida",
+    "reason": "Servicio amplio bajo AGPL; fuera del alcance actual y requiere evaluación de licencia antes de integrar."
+  },
+  {
+    "name": "AhmadHassan-BTed/Turnitout-Humanizer",
+    "url": "https://github.com/AhmadHassan-BTed/Turnitout-Humanizer",
+    "head": "be809376fae9337e85ced6f323b323add10af7e9",
+    "candidatePaths": [
+      "AGENTS.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "unclecode/crawl4ai",
+    "url": "https://github.com/unclecode/crawl4ai",
+    "head": "bf0c7925e21992af972039672fecd8e85163b575",
+    "candidatePaths": [
+      "README.md",
+      "crawl4ai/",
+      "prompts/"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "firecrawl/firecrawl",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "head": "271c6ecf82b4e73bc28b3d15b6e71eb26bc4282f",
+    "candidatePaths": [
+      "README.md",
+      "firecrawl-skills/",
+      "firecrawl-workflows/"
+    ],
+    "decision": "Diferida",
+    "reason": "Servicio amplio bajo AGPL; fuera del alcance actual y requiere evaluación de licencia antes de integrar."
+  },
+  {
+    "name": "karpathy/llm-council",
+    "url": "https://github.com/karpathy/llm-council",
+    "head": "92e1fccb1bdcf1bab7221aa9ed90f9dc72529131",
+    "candidatePaths": [
+      "README.md",
+      "backend/",
+      "frontend/"
+    ],
+    "decision": "Material",
+    "reason": "Material — flujo consejo: se implementó independientemente la idea de opiniones iniciales, revisión cruzada y síntesis final; el repositorio no declara licencia y no se copió código, prompt o interfaz."
+  },
+  {
+    "name": "Nutlope/hallmark",
+    "url": "https://github.com/Nutlope/hallmark",
+    "head": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+    "candidatePaths": [
+      "README.md",
+      "skills/hallmark/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "trycompai/crm",
+    "url": "https://github.com/trycompai/crm",
+    "head": "c9473b82e3b4bfd5d0598bbdf7c1f36f3d2d68f0",
+    "candidatePaths": [
+      "README.md",
+      ".agents/skills/",
+      "tools/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "DuarteSantos8/openGym",
+    "url": "https://github.com/DuarteSantos8/openGym",
+    "head": "e4a68a94c42a3c17cbd560d66ce2e46a7048ab99",
+    "candidatePaths": [
+      "README.md",
+      "mcp/",
+      "routines/"
+    ],
+    "decision": "Diferida",
+    "reason": "Servicio amplio bajo AGPL; fuera del alcance actual y requiere evaluación de licencia antes de integrar."
+  },
+  {
+    "name": "ossu/data-science",
+    "url": "https://github.com/ossu/data-science",
+    "head": "ccb52fe046fe3b61696083596278b36516fdb80b",
+    "candidatePaths": [
+      "README.md",
+      "coursepages/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "mrdbourke/zero-to-mastery-ml",
+    "url": "https://github.com/mrdbourke/zero-to-mastery-ml",
+    "head": "81492352d12d7a52caef57bba7744cbdc34af33f",
+    "candidatePaths": [
+      "README.md",
+      "section-4-unstructured-data-projects/",
+      "data/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "mschwartz/assembly-tutorial",
+    "url": "https://github.com/mschwartz/assembly-tutorial",
+    "head": "a4e429cecbd3b49d7ef1bee9f6826cbcf8e72848",
+    "candidatePaths": [
+      "README.md",
+      "instruction-set/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "practical-tutorials/project-based-learning",
+    "url": "https://github.com/practical-tutorials/project-based-learning",
+    "head": "f99ea242247b9b6df9bd277f832fa5a8f1da28e1",
+    "candidatePaths": [
+      "README.md",
+      "scripts/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "sajal2692/data-science-portfolio",
+    "url": "https://github.com/sajal2692/data-science-portfolio",
+    "head": "66b745a3b519c5218a943c2d785c1226c808e4c9",
+    "candidatePaths": [
+      "readme.md",
+      "requirements.txt"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "Graphify-Labs/graphify",
+    "url": "https://github.com/Graphify-Labs/graphify",
+    "head": "480b61ed91cbc08177dc2c60caa9ffd6c9b95749",
+    "candidatePaths": [
+      "README.md",
+      "graphify/",
+      "docs/",
+      "tests/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "goldmansachs/gs-quant",
+    "url": "https://github.com/goldmansachs/gs-quant",
+    "head": "8725ddf2ce4b925a7ce68ba90eca353455ac34b5",
+    "candidatePaths": [
+      "README.md",
+      "gs_quant/mcp/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "morluto/rea",
+    "url": "https://github.com/morluto/rea",
+    "head": "05be423acbdf3a56673bdbd3004e4b500c0f5217",
+    "candidatePaths": [
+      "README.md",
+      "bridge/",
+      "src/",
+      "mcp.json"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "cursor/plugins",
+    "url": "https://github.com/cursor/plugins",
+    "head": "e1cc03121a0e71129a4fb730d7c5528a0a3e43c8",
+    "candidatePaths": [
+      "README.md",
+      "harness/",
+      "orchestrate/",
+      "schemas/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "miqdadbadjuber/anti-slop",
+    "url": "https://github.com/miqdadbadjuber/anti-slop",
+    "head": "57b92d497a67c226b060b71c6f263c8631f37da4",
+    "candidatePaths": [
+      "README.md",
+      "rules/",
+      "skills/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "haydenschmitty/floorplan",
+    "url": "https://github.com/haydenschmitty/floorplan",
+    "head": "94f81b463b7617e06d873ac71323ce71644c8399",
+    "candidatePaths": [
+      "SECURITY.md",
+      "skills/floorplan/SKILL.md",
+      "skills/floorplan/agents/openai.yaml",
+      "skills/floorplan/assets/favicon.png"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "vercel-labs/agent-desktop",
+    "url": "https://github.com/vercel-labs/agent-desktop",
+    "head": "8ffecc1d3d088727f8d84baf4dde0224aab2e8ad",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "crates/",
+      "SECURITY.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "amosblomqvist/learnharness",
+    "url": "https://github.com/amosblomqvist/learnharness",
+    "head": "cb25c8e49b85eed9e78315584731cad73a0118a6",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "src/"
+    ],
+    "decision": "Diferida",
+    "reason": "Servicio amplio bajo AGPL; fuera del alcance actual y requiere evaluación de licencia antes de integrar."
+  },
+  {
+    "name": "janestreet/agent_skills",
+    "url": "https://github.com/janestreet/agent_skills",
+    "head": "7c6715c29548a3b39d4a9545c698ee4fd17a7213",
+    "candidatePaths": [
+      "README.md",
+      "socratic-tutor/SKILL.md"
+    ],
+    "decision": "Material",
+    "reason": "Material — integrado: la skill socratic-tutor fue adaptada al catálogo local y al español; no se portaron estado de sesión ni mapas de nivel."
+  },
+  {
+    "name": "multica-ai/andrej-karpathy-skills",
+    "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+    "candidatePaths": [
+      ".cursor/rules/karpathy-guidelines.mdc",
+      "skills/karpathy-guidelines/SKILL.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "veltman/clmystery",
+    "url": "https://github.com/veltman/clmystery",
+    "head": "a159819c33fd37b4b0b079dc265c8b137ca71be6",
+    "candidatePaths": [
+      "README.md",
+      "instructions",
+      "solution"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "PaddlePaddle/PaddleOCR",
+    "url": "https://github.com/PaddlePaddle/PaddleOCR",
+    "head": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+    "candidatePaths": [
+      "README.md",
+      "mcp_server/",
+      "skills/",
+      "ppstructure/"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "microsoft/powerbi-modeling-mcp",
+    "url": "https://github.com/microsoft/powerbi-modeling-mcp",
+    "head": "caed9d3fcffd319a6820567890d833e120bb8f32",
+    "candidatePaths": [
+      "README.md",
+      "docs/",
+      "EULA.txt"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "codecrafters-io/build-your-own-x",
+    "url": "https://github.com/codecrafters-io/build-your-own-x",
+    "head": "ebae1430d28d52dbe12e189ffc7507e08d8c62ca",
+    "candidatePaths": [
+      "README.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "sindresorhus/awesome",
+    "url": "https://github.com/sindresorhus/awesome",
+    "head": "bc98e517ddca672f55f9857d714fc3ea3c3540b2",
+    "candidatePaths": [
+      "readme.md",
+      "awesome.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "baidu/Unlimited-OCR",
+    "url": "https://github.com/baidu/Unlimited-OCR",
+    "head": "37cf646758611a3b81f53863d1e91128a98d58b1",
+    "candidatePaths": [
+      "README.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Requiere stack/servicio de ingestión o automatización fuera del scope funcional actual."
+  },
+  {
+    "name": "borghei/Claude-Skills",
+    "url": "https://github.com/borghei/Claude-Skills",
+    "head": "25bf86b89c6c1e63f433a5b65e8cfcb6cf0b7ad3",
+    "candidatePaths": [
+      "README.md",
+      "agents/",
+      "skills.json",
+      "registry.json",
+      "tools/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "LLMQuant/skills",
+    "url": "https://github.com/LLMQuant/skills",
+    "head": "1918237467c2dff4cc97a18ebc0892dfd46e8129",
+    "candidatePaths": [
+      "README.md",
+      "skills/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "Orchestra-Research/AI-Research-SKILLs",
+    "url": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
+    "head": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+    "candidatePaths": [
+      "README.md",
+      "14-agents/",
+      "15-rag/",
+      "22-agent-native-research-artifact/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "ivansipiran/CC6204-Deep-Learning",
+    "url": "https://github.com/ivansipiran/CC6204-Deep-Learning",
+    "head": "36a6cb31d04a1af79b648ea2a2fa9cc589110c68",
+    "candidatePaths": [
+      "README.md",
+      "Labs/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "ivansipiran/AED-Apuntes",
+    "url": "https://github.com/ivansipiran/AED-Apuntes",
+    "head": "7d8ef60e45a1923f855b5777b60696b074a7a445",
+    "candidatePaths": [
+      "README.md",
+      "10_Grafos.ipynb"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "dccuchile/CC6204",
+    "url": "https://github.com/dccuchile/CC6204",
+    "head": "5b8f773c7bece0157a65bb2b2bc267db92a95fc5",
+    "candidatePaths": [
+      "README.md",
+      "2020/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "GAMES-UChile/Curso-Aprendizaje-de-Maquinas",
+    "url": "https://github.com/GAMES-UChile/Curso-Aprendizaje-de-Maquinas",
+    "head": "56627e2ae0361175db38d8df9872ca0a3947aa5f",
+    "candidatePaths": [
+      "README.md",
+      "capitulos/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "msitarzewski/agency-agents",
+    "url": "https://github.com/msitarzewski/agency-agents",
+    "head": "8ae6164602c95ca78828b148b9052460ee426885",
+    "candidatePaths": [
+      "README.md",
+      "divisions.json",
+      "examples/workflow-with-memory.md",
+      "integrations/mcp-memory/",
+      "security/"
+    ],
+    "decision": "Material",
+    "reason": "Material — referencia de diseño: la organización de especialistas y ejemplos con memoria informaron la revisión del catálogo; no se importó el conjunto de agentes."
+  },
+  {
+    "name": "cathrynlavery/diagram-design",
+    "url": "https://github.com/cathrynlavery/diagram-design",
+    "head": "f6db0decea96de66b901331a0f79a8d4b147ebae",
+    "candidatePaths": [
+      "README.md",
+      "skills/diagram-design/",
+      "prompts/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "K-Dense-AI/scientific-agent-skills",
+    "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "head": "ec59a29a03d5c40f73ab40878df04860bc00e876",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "docs/skills.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "blader/humanizer",
+    "url": "https://github.com/blader/humanizer",
+    "head": "b48c832f0f809c1b5658edbb838c2521b72f2413",
+    "candidatePaths": [
+      "README.md",
+      "SKILL.md",
+      "scripts/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "DietrichGebert/ponytail",
+    "url": "https://github.com/DietrichGebert/ponytail",
+    "head": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+    "candidatePaths": [
+      "README.md",
+      "skills/",
+      "hooks/",
+      "tests/"
+    ],
+    "decision": "Diferida",
+    "reason": "Colección de skills/personas especializada; no se necesita añadir otro catálogo en esta versión."
+  },
+  {
+    "name": "hugosantanna/clo-author",
+    "url": "https://github.com/hugosantanna/clo-author",
+    "head": "142c9f7d5e7199cd099039aa3c91732bafad8945",
+    "candidatePaths": [
+      "README.md",
+      "MEMORY.md",
+      "CLAUDE.md",
+      "scripts/"
+    ],
+    "decision": "Diferida",
+    "reason": "Herramienta, framework o material de dominio ajeno al objetivo funcional de esta versión."
+  },
+  {
+    "name": "daniel-boctor/Daniel-Boctor-Youtube",
+    "url": "https://github.com/daniel-boctor/Daniel-Boctor-Youtube",
+    "head": "75c3f6a6ce684189d4fbff0e11bdd6c21ebdd2ec",
+    "candidatePaths": [
+      "README.md",
+      "Finance101/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "odysseus-dev/odysseus",
+    "url": "https://github.com/odysseus-dev/odysseus",
+    "head": "76bb62440360f44e308fe218221514a36286d52b",
+    "candidatePaths": [
+      "README.md",
+      "core/",
+      "integrations/",
+      "mcp_servers/"
+    ],
+    "decision": "Diferida",
+    "reason": "Servicio amplio bajo AGPL; fuera del alcance actual y requiere evaluación de licencia antes de integrar."
+  },
+  {
+    "name": "dair-ai/Mathematics-for-ML",
+    "url": "https://github.com/dair-ai/Mathematics-for-ML",
+    "head": "4fa26c54d87d5453c52b164ac6fcbfacd093ae00",
+    "candidatePaths": [
+      "README.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "microsoft/markitdown",
+    "url": "https://github.com/microsoft/markitdown",
+    "head": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+    "candidatePaths": [
+      "README.md",
+      "packages/markitdown/src/",
+      "packages/markitdown-mcp/src/",
+      "packages/markitdown-ocr/src/"
+    ],
+    "decision": "Material",
+    "reason": "Material — integrado opcional: convertir_documento ejecuta python -m markitdown si ya está instalado, con límites locales y sin instalar dependencias."
+  },
+  {
+    "name": "ageron/handson-ml3",
+    "url": "https://github.com/ageron/handson-ml3",
+    "head": "ef1c9f5ab11083584635b9b3a7846f49c58a6084",
+    "candidatePaths": [
+      "README.md",
+      "ml-project-checklist.md"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  },
+  {
+    "name": "romanmichaelpaolucci/Quant-Guild-Library",
+    "url": "https://github.com/romanmichaelpaolucci/Quant-Guild-Library",
+    "head": "d6f43bae4b1afb021c0d2386df79984b65214e76",
+    "candidatePaths": [
+      "README.md",
+      "2026 Video Lectures/"
+    ],
+    "decision": "Diferida",
+    "reason": "Contenido educativo o colección de recursos, no componente del runtime."
+  }
+]

@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+config/settings.json
+data/
+logs/
+outputs/
+node_modules/
+*.sqlite*
+*.db
+*.log
+__pycache__/
+.venv/
+floorplan/
+memory/private/
+knowledge/private/

@@ -1,0 +1,50 @@
+{
+  "coordinador": {
+    "nombre": "Coordinador",
+    "descripcion": "Elige el flujo que mejor corresponde al objetivo del usuario.",
+    "skill": "coordinar",
+    "herramientas": []
+  },
+  "investigador": {
+    "nombre": "Investigador",
+    "descripcion": "Consulta materiales disponibles y recoge evidencia con referencias.",
+    "skill": "investigar",
+    "herramientas": ["leer_texto", "listar_archivos"]
+  },
+  "redactor": {
+    "nombre": "Redactor",
+    "descripcion": "Redacta una respuesta clara y ajustada al propósito solicitado.",
+    "skill": "redactar",
+    "herramientas": ["leer_texto"]
+  },
+  "revisor": {
+    "nombre": "Revisor",
+    "descripcion": "Comprueba evidencia y entrega el producto final corregido.",
+    "skill": "revisar",
+    "herramientas": ["leer_texto", "validar_json"]
+  },
+  "planificador": {
+    "nombre": "Planificador",
+    "descripcion": "Convierte objetivos en pasos pequeños con resultados verificables.",
+    "skill": "planificar",
+    "herramientas": ["leer_texto", "validar_json"]
+  },
+  "tutor": {
+    "nombre": "Tutor",
+    "descripcion": "Enseña un tema con explicación, ejemplos y práctica guiada adecuados al estudiante.",
+    "skill": "tutor",
+    "herramientas": ["leer_texto", "listar_archivos"]
+  },
+  "desarrollador": {
+    "nombre": "Desarrollador",
+    "descripcion": "Analiza código aportado o disponible en materiales y propone cambios verificables.",
+    "skill": "desarrollador",
+    "herramientas": ["leer_texto", "listar_archivos", "validar_json", "sumar_importes"]
+  },
+  "analista-financiero": {
+    "nombre": "Analista financiero",
+    "descripcion": "Revisa movimientos y presupuestos aportados, con cálculos trazables y límites claros.",
+    "skill": "analista-financiero",
+    "herramientas": ["leer_texto", "listar_archivos", "validar_json"]
+  }
+}

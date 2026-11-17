@@ -1,0 +1,5 @@
+* text=auto
+*.service text eol=lf
+*.mjs text eol=lf
+*.md text eol=lf
+third_party/** -text

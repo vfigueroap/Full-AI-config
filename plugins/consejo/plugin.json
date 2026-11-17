@@ -1,0 +1,26 @@
+{
+  "description": "Añade un flujo de opiniones independientes y síntesis con etiquetas de propuesta.",
+  "workflows": {
+    "consejo": {
+      "descripcion": "Obtiene dos análisis independientes del mismo encargo y entrega una síntesis revisada.",
+      "pasos": [
+        {
+          "agente": "investigador",
+          "depende_de": [],
+          "instrucciones": "Evalúa el objetivo de forma independiente. Usa los materiales autorizados si existen; distingue hechos, inferencias y vacíos. Formula una recomendación breve con razones verificables. No intentes anticipar otras opiniones."
+        },
+        {
+          "agente": "planificador",
+          "depende_de": [],
+          "instrucciones": "Evalúa el mismo objetivo de forma independiente. Identifica criterios de éxito, alternativas y riesgos prácticos; señala supuestos. Formula una recomendación breve sin consultar ni anticipar otras opiniones."
+        },
+        {
+          "agente": "revisor",
+          "depende_de": ["investigador", "planificador"],
+          "anonimizar": true,
+          "instrucciones": "Compara Propuesta A y Propuesta B como aportes etiquetados; las etiquetas no garantizan que el contenido o estilo oculte quién lo escribió. Evalúa razones y evidencia, destaca acuerdos y desacuerdos, resuelve diferencias cuando haya base suficiente y entrega una síntesis propia con conclusión, límites e incertidumbres. No inventes una votación ni atribuyas autores."
+        }
+      ]
+    }
+  }
+}

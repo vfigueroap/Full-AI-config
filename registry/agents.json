@@ -1,0 +1,273 @@
+{
+  "coordinador": {
+    "name": "Coordinador",
+    "description": "Selecciona el flujo y delega solo a responsables pertinentes.",
+    "use_when": "Cada encargo que necesita escoger un flujo o equipo.",
+    "do_not_use_when": "El usuario asigna explícitamente una tarea concreta a un especialista.",
+    "delegates": [
+      "personal",
+      "universidad",
+      "desarrollador",
+      "analista-financiero",
+      "sistemas",
+      "negocios",
+      "investigador",
+      "planificador",
+      "memoria",
+      "redactor",
+      "revisor"
+    ],
+    "skills": [
+      "coordinar"
+    ],
+    "tools": [],
+    "instructions": "agents/coordinador/AGENT.md",
+    "model_tier": "coordinator"
+  },
+  "investigador": {
+    "name": "Investigador",
+    "description": "Recopila evidencia desde materiales aportados y registra sus fuentes.",
+    "use_when": "Un resultado depende de revisar archivos o contrastar evidencia disponible.",
+    "do_not_use_when": "Solo se requiere redactar o calcular datos ya entregados.",
+    "delegates": [],
+    "skills": [
+      "investigar"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos",
+      "buscar_memoria",
+      "convertir_documento"
+    ],
+    "instructions": "agents/investigador/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "redactor": {
+    "name": "Redactor",
+    "description": "Prepara un texto para el propósito y formato pedidos.",
+    "use_when": "Hay que redactar un producto a partir de información disponible.",
+    "do_not_use_when": "Se necesita verificar evidencia o ejecutar una acción externa.",
+    "delegates": [],
+    "skills": [
+      "redactar"
+    ],
+    "tools": [
+      "leer_texto",
+      "proponer_archivo"
+    ],
+    "instructions": "agents/redactor/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "revisor": {
+    "name": "Revisor",
+    "description": "Revisa evidencia, coherencia y requisitos del producto final.",
+    "use_when": "Un flujo requiere control de calidad o revisión final.",
+    "do_not_use_when": "La tarea es únicamente una lluvia de ideas sin entrega verificable.",
+    "delegates": [],
+    "skills": [
+      "revisar"
+    ],
+    "tools": [
+      "leer_texto",
+      "validar_json"
+    ],
+    "instructions": "agents/revisor/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "planificador": {
+    "name": "Planificador",
+    "description": "Convierte objetivos en pasos con dependencias y criterios verificables.",
+    "use_when": "El usuario pide organizar trabajo, proyecto o próximos pasos.",
+    "do_not_use_when": "Solo pide una respuesta factual breve.",
+    "delegates": [],
+    "skills": [
+      "planificar",
+      "daily-planning",
+      "weekly-review"
+    ],
+    "tools": [
+      "leer_texto",
+      "validar_json",
+      "buscar_memoria"
+    ],
+    "instructions": "agents/planificador/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "tutor": {
+    "name": "Tutor",
+    "description": "Explica conceptos y guía ejercicios según el nivel del estudiante.",
+    "use_when": "El usuario pide aprender, practicar o recibir una explicación.",
+    "do_not_use_when": "Pide que se complete una entrega sin tutoría.",
+    "delegates": [],
+    "skills": [
+      "tutor",
+      "socratic-tutor"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos"
+    ],
+    "instructions": "agents/tutor/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "desarrollador": {
+    "name": "Desarrollador",
+    "description": "Analiza requisitos y código, y propone o prepara cambios acotados.",
+    "use_when": "Una tarea modifica software o requiere comprender código.",
+    "do_not_use_when": "El usuario solo solicita orientación general sin revisar un proyecto.",
+    "delegates": [],
+    "skills": [
+      "desarrollador"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos",
+      "validar_json",
+      "proponer_archivo"
+    ],
+    "instructions": "agents/desarrollador/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "analista-financiero": {
+    "name": "Analista financiero",
+    "description": "Analiza datos financieros entregados con cálculos trazables y supuestos claros.",
+    "use_when": "El encargo pide revisar presupuestos o movimientos aportados.",
+    "do_not_use_when": "El usuario pide tomar decisiones financieras o ejecutar operaciones.",
+    "delegates": [],
+    "skills": [
+      "analista-financiero"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos",
+      "sumar_importes",
+      "economia_unitaria"
+    ],
+    "instructions": "agents/analista-financiero/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "universidad": {
+    "name": "Coordinador universitario",
+    "description": "Organiza investigación, tutoría y evaluación para encargos académicos.",
+    "use_when": "Se solicita estudiar, preparar una clase o revisar una entrega académica.",
+    "do_not_use_when": "El encargo no es académico o requiere asesoría profesional regulada.",
+    "delegates": [
+      "tutor",
+      "evaluador",
+      "investigador"
+    ],
+    "skills": [
+      "coordinar",
+      "socratic-tutor"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos",
+      "convertir_documento"
+    ],
+    "instructions": "agents/universidad/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "evaluador": {
+    "name": "Evaluador",
+    "description": "Aplica una rúbrica explícita y explica la evidencia detrás de cada evaluación.",
+    "use_when": "Se entrega una tarea, ensayo o prueba junto con criterios de evaluación.",
+    "do_not_use_when": "Falta la rúbrica y el usuario no autorizó proponer criterios.",
+    "delegates": [],
+    "skills": [
+      "exam-grading"
+    ],
+    "tools": [
+      "leer_texto",
+      "validar_json",
+      "proponer_archivo",
+      "convertir_documento"
+    ],
+    "instructions": "agents/evaluador/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "personal": {
+    "name": "Asistente personal",
+    "description": "Ayuda a organizar agenda, tareas y revisiones usando información autorizada.",
+    "use_when": "El usuario solicita planificar su día o revisar pendientes personales.",
+    "do_not_use_when": "Se requiere acceder a una cuenta o escribir en un calendario sin conexión habilitada y aprobación.",
+    "delegates": [
+      "planificador",
+      "investigador",
+      "memoria"
+    ],
+    "skills": [
+      "daily-planning",
+      "weekly-review"
+    ],
+    "tools": [
+      "buscar_memoria",
+      "guardar_memoria",
+      "consultar_integracion",
+      "proponer_archivo"
+    ],
+    "instructions": "agents/personal/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "sistemas": {
+    "name": "Administrador de sistemas",
+    "description": "Diagnostica sistemas y propone cambios reversibles basados en observación.",
+    "use_when": "El usuario pide revisar servicios, infraestructura o recuperación.",
+    "do_not_use_when": "No se autorizó un cambio o falta acceso de solo lectura suficiente.",
+    "delegates": [
+      "desarrollador",
+      "planificador"
+    ],
+    "skills": [
+      "desarrollador",
+      "planificar",
+      "analisis-riesgos"
+    ],
+    "tools": [
+      "leer_texto",
+      "listar_archivos",
+      "consultar_integracion",
+      "proponer_archivo"
+    ],
+    "instructions": "agents/sistemas/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "negocios": {
+    "name": "Asistente de negocios",
+    "description": "Estructura decisiones operativas y propuestas de negocio con supuestos visibles.",
+    "use_when": "El usuario pide planificar una iniciativa, oferta o proceso comercial.",
+    "do_not_use_when": "Se pide consejo legal, fiscal o de inversión personalizado.",
+    "delegates": [
+      "planificador",
+      "analista-financiero",
+      "investigador"
+    ],
+    "skills": [
+      "planificar",
+      "analista-financiero"
+    ],
+    "tools": [
+      "leer_texto",
+      "sumar_importes",
+      "economia_unitaria"
+    ],
+    "instructions": "agents/negocios/AGENT.md",
+    "model_tier": "specialist"
+  },
+  "memoria": {
+    "name": "Curador de memoria",
+    "description": "Busca y registra solo contexto duradero y autorizado con procedencia.",
+    "use_when": "Se necesita retomar trabajo previo o guardar una decisión explícita.",
+    "do_not_use_when": "La información es sensible, temporal o no autorizada para persistir.",
+    "delegates": [],
+    "skills": [
+      "weekly-review"
+    ],
+    "tools": [
+      "buscar_memoria",
+      "guardar_memoria"
+    ],
+    "instructions": "agents/memoria/AGENT.md",
+    "model_tier": "specialist"
+  }
+}

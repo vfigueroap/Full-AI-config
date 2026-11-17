@@ -1,0 +1,57 @@
+{
+  "coordinar": {
+    "path": "skills/coordinar/SKILL.md",
+    "description": "Elige un flujo o delega en especialistas según el modo del encargo."
+  },
+  "investigar": {
+    "path": "skills/investigar/SKILL.md",
+    "description": "Consulta materiales y presenta hallazgos con referencias."
+  },
+  "redactar": {
+    "path": "skills/redactar/SKILL.md",
+    "description": "Redacta una respuesta ajustada al objetivo y formato solicitados."
+  },
+  "revisar": {
+    "path": "skills/revisar/SKILL.md",
+    "description": "Comprueba evidencia, consistencia y requisitos antes de entregar."
+  },
+  "planificar": {
+    "path": "skills/planificar/SKILL.md",
+    "description": "Desglosa objetivos en pasos, dependencias y criterios verificables."
+  },
+  "tutor": {
+    "path": "skills/tutor/SKILL.md",
+    "description": "Enseña un concepto con ejemplos y práctica guiada."
+  },
+  "desarrollador": {
+    "path": "skills/desarrollador/SKILL.md",
+    "description": "Analiza código y requisitos para proponer cambios concretos."
+  },
+  "analista-financiero": {
+    "path": "skills/analista-financiero/SKILL.md",
+    "description": "Analiza presupuestos y movimientos aportados con cálculos trazables."
+  },
+  "daily-planning": {
+    "path": "skills/daily-planning/SKILL.md",
+    "description": "Prioriza tareas del día desde disponibilidad y compromisos confirmados."
+  },
+  "weekly-review": {
+    "path": "skills/weekly-review/SKILL.md",
+    "description": "Resume avances, pendientes y decisiones para preparar la semana siguiente."
+  },
+  "exam-grading": {
+    "path": "skills/exam-grading/SKILL.md",
+    "description": "Evalúa respuestas con una rúbrica dada, criterios explícitos y evidencia."
+  },
+  "socratic-tutor": {
+    "path": "skills/socratic-tutor/SKILL.md",
+    "description": "Guía sesiones de aprendizaje interactivas cuando el usuario pide tutoría deliberada."
+  },
+  "analisis-riesgos": {
+    "path": "skills/analisis-riesgos/SKILL.md",
+    "description": "Documenta activos, límites de confianza, amenazas y mitigaciones del servicio.",
+    "resources": [
+      "third_party/cybersecurity-skills/template.md"
+    ]
+  }
+}

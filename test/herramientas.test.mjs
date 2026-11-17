@@ -1,0 +1,51 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, mkdir, writeFile, symlink, rm } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import { crearHerramientas } from '../src/herramientas.mjs';
+
+test('tools constrain routes, hide sensitive names, and bound inputs', async t => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'herramientas-'));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  await mkdir(path.join(dir, 'docs'));
+  await mkdir(path.join(dir, 'MiCarpeta'));
+  await writeFile(path.join(dir, 'docs', 'nota.txt'), 'contenido');
+  await writeFile(path.join(dir, 'MiCarpeta', 'NotaABC.txt'), 'Mayúsculas');
+  await writeFile(path.join(dir, 'tokenizer.js'), 'permitido');
+  await writeFile(path.join(dir, '.privado'), 'secreto');
+  await writeFile(path.join(dir, 'token.pem'), 'secreto');
+  let linkCreated = true;
+  try { await symlink(path.join(dir, 'docs'), path.join(dir, 'atajo'), 'junction'); } catch (e) { if (e.code === 'EPERM') linkCreated = false; else throw e; }
+  const h = crearHerramientas(dir);
+  assert.equal(await h.leer_texto({ ruta: 'docs/nota.txt' }), 'contenido');
+  assert.equal(await h.leer_texto({ ruta: 'MiCarpeta/NotaABC.txt' }), 'Mayúsculas');
+  assert.equal(await h.leer_texto({ ruta: 'tokenizer.js' }), 'permitido');
+  assert.deepEqual((await h.listar_archivos()).split('\n').sort(), ['docs/', 'MiCarpeta/', 'tokenizer.js'].sort());
+  await assert.rejects(h.leer_texto({ ruta: '../fuera' }), /Ruta inválida/);
+  await t.test('rechaza enlaces que redirigen la lectura', { skip: !linkCreated }, async () => {
+    await assert.rejects(h.leer_texto({ ruta: 'atajo/nota.txt' }), /enlaces/);
+  });
+  await assert.rejects(h.leer_texto({ ruta: 'token.pem' }), /restringid/);
+  await assert.rejects(h.leer_texto({ ruta: '.privado' }), /Ruta inválida/);
+  assert.equal(await h.validar_json({ texto: '{"ok":true}' }), 'JSON válido');
+  assert.equal(await h.validar_json({ texto: '{' }), 'JSON inválido');
+  await assert.rejects(h.listar_archivos(null), /Argumentos inválidos/);
+  await assert.rejects(h.leer_texto({ ruta: 'docs/nota.txt', extra: true }), /Argumentos inválidos/);
+  await writeFile(path.join(dir, 'largo.txt'), 'x'.repeat(24 * 1024 + 1));
+  await assert.rejects(h.leer_texto({ ruta: 'largo.txt' }), /24 KiB/);
+  const jsonOnly = crearHerramientas();
+  assert.deepEqual(Object.keys(jsonOnly), ['validar_json', 'sumar_importes']);
+  assert.equal(await jsonOnly.validar_json({ texto: 'null' }), 'JSON válido');
+  assert.equal(await jsonOnly.sumar_importes({ importes: ['0.1', '0.2'] }), '0.3');
+  assert.equal(await jsonOnly.sumar_importes({ importes: ['12000', '-2500'] }), '9500');
+  assert.equal(await jsonOnly.sumar_importes({ importes: ['0'] }), '0');
+  assert.equal(await jsonOnly.sumar_importes({ importes: ['1.25', '-0.25'] }), '1.00');
+  await assert.rejects(jsonOnly.sumar_importes({ importes: ['1.234'] }), /importes debe/);
+  await assert.rejects(jsonOnly.sumar_importes({ importes: [1, '2'] }), /importes debe/);
+  await assert.rejects(jsonOnly.sumar_importes({ importes: ['1', '2'], extra: true }), /Argumentos inválidos/);
+  assert.equal(typeof h.leer_texto.uso, 'string');
+  assert.equal(typeof h.listar_archivos.uso, 'string');
+  assert.equal(typeof h.validar_json.uso, 'string');
+  assert.equal(typeof h.sumar_importes.uso, 'string');
+});

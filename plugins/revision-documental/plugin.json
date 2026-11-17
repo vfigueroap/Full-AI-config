@@ -1,0 +1,9 @@
+{
+  "description": "Añade una revisión de documentos con trazabilidad de fuentes.",
+  "workflows": {
+    "revision-documental": {
+      "descripcion": "Contrasta un documento con sus fuentes y entrega una revisión con observaciones y referencias.",
+      "pasos": [{"agente":"investigador","depende_de":[]},{"agente":"revisor","depende_de":["investigador"]}]
+    }
+  }
+}

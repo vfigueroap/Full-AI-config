@@ -1,0 +1,6 @@
+{
+  "supabase":{"description":"Conector de datos remoto con Bearer y apikey; requiere configuración y permisos verificados.","protocol":"http","enabled":false,"base_url_env":"SUPABASE_URL","token_env":"SUPABASE_TOKEN","allowed_paths":["/rest/v1"]},
+  "immich":{"description":"Biblioteca de fotos con x-api-key; acceso solo tras configurar y verificar autenticación y alcance.","protocol":"http","enabled":false,"base_url_env":"IMMICH_BASE_URL","token_env":"IMMICH_API_KEY","allowed_paths":["/api/search","/api/albums"]},
+  "nextcloud":{"description":"Archivos y calendario mediante Basic con usuario y contraseña de aplicación; conexión apagada hasta verificar alcance.","protocol":"http","enabled":false,"base_url_env":"NEXTCLOUD_BASE_URL","username_env":"NEXTCLOUD_USERNAME","token_env":"NEXTCLOUD_TOKEN","allowed_paths":["/remote.php/dav"]},
+  "mcp":{"description":"Lectura de recursos de texto por alias en un servidor MCP stdio local.","protocol":"mcp","enabled":false,"command_env":"AI_MCP_EXECUTABLE","args":[],"resources":{},"env_keys":[]}
+}
