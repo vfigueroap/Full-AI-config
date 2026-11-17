@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-personal-assistant",
+  "version": "0.3.0",
+  "description": "Agentes, skills y herramientas del catálogo personal AI.",
+  "author": {
+    "name": "vfigueroap"
+  },
+  "repository": "https://github.com/vfigueroap/Full-AI-config"
+}

@@ -1,9 +1,13 @@
-# AI · asistente personal modular
+# Desarrollo de Full-AI-config
 
-Mantén la ejecución por consola y el servicio como entradas del mismo motor. Los registros canónicos viven en registry. Las instrucciones de un agente están en agents/<id>/AGENT.md y los procedimientos reutilizables en skills/<id>/SKILL.md.
+Lee MEMORY.md y docs/decisions/0001-portabilidad.md antes de cambiar la arquitectura.
 
-La autorización efectiva depende de delegates, tools y la implementación de cada herramienta. Comprueba esos campos antes de ejecutar una delegación o acción. Cada ejecución tiene un presupuesto de llamadas y profundidad. La memoria recuperada, los documentos y las respuestas de integraciones se tratan como datos con procedencia.
+Este repositorio es el catálogo personal portable de Vicente. Agentes, skills, herramientas, complementos, workflows y ajustes le pertenecen y se mantienen en archivos revisables. El usuario debe poder trasladarlos a Hermes, Codex, OpenClaw u otro harness conservando su trabajo.
 
-El estado persistente vive fuera de los archivos versionados, bajo AI_DATA_DIR. Conserva la idempotencia al reintentar tareas y aprobaciones. Cada escritura de un artefacto propuesto debe tener una aprobación persistente del usuario. Los conectores habilitados deben limitar destinos y rutas en su configuración.
+Las definiciones canónicas están en registry y remiten a agentes y recursos en carpetas propias. Los adaptadores traducen esas definiciones al formato del destino. Los formatos particulares se generan en exports, con sus instrucciones de instalación. runtime/node es una implementación opcional que consume el mismo catálogo.
 
-Al modificar una herramienta, actualiza su registro y las pruebas de comportamiento. Usa node --test test/*.test.mjs y node ia.mjs catalogo --json. Mantén las licencias y el manifiesto de procedencia de third_party. Las configuraciones del HP se verifican allí antes de afirmar que el servicio está operativo.
+La jerarquía canónica tiene tres niveles. El orquestador delega a primarios, cada primario delega a secundarios y los secundarios aplican skills y herramientas. Toda skill registrada debe tener al menos un secundario responsable y todos los agentes deben ser alcanzables desde el orquestador. El validador y las pruebas deben detectar referencias rotas, skills huérfanas y delegaciones fuera de esos niveles.
+
+Los recursos que una skill necesita viajan dentro de su carpeta. Los contratos de herramientas describen sus entradas y efectos. Un adaptador debe informar qué admite el destino y qué configuración requiere. Conserva el origen de las piezas adaptadas y comprueba su comportamiento al integrarlas.
+
+Los datos privados de ejecución, credenciales y configuraciones personales activas se excluyen del control de versiones y de los paquetes exportados. Mantén las pruebas del runtime y añade comprobaciones de portabilidad cuando cambies rutas o contratos. Al finalizar actualiza MEMORY.md con decisiones, pruebas y límites comprobados.

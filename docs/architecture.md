@@ -1,6 +1,6 @@
-# Arquitectura actual
+# Arquitectura del runtime de referencia
 
-Este documento describe el código que existe en `AI/src` y `AI/ia.mjs`. La cola persistente y el servidor HTTP están implementados como módulos y comandos; su disponibilidad 24/7 depende de ejecutar y supervisar el proceso en el host. No se ha verificado un despliegue o reinicio real en Ubuntu.
+Este documento describe el consumidor opcional del catálogo que vive en `runtime/node` y `ia.mjs`. La cola persistente y el servidor HTTP están implementados como módulos y comandos; su disponibilidad 24/7 depende de ejecutar y supervisar el proceso en el host. No se ha verificado un despliegue o reinicio real en Ubuntu.
 
 ```mermaid
 flowchart TD
@@ -16,7 +16,7 @@ flowchart TD
     DB[("AI_DATA_DIR/estado.sqlite\nWAL · leases · FTS5")]
     CAP["capacidades.mjs\nmemoria · ingesta · propuestas de archivo"]
     TOOLS["herramientas.mjs\nlectura de material · JSON · sumas"]
-    INT["integraciones.mjs\nHTTP GET limitado · conversión MarkItDown · economía unitaria"]
+    INT["integrations/api/index.mjs\nHTTP GET limitado · conversión MarkItDown · economía unitaria"]
     EXT[("HTTP integrations declaradas\nremotas requieren HTTPS")]
     ART["AI_DATA_DIR/artifacts\narchivos aprobados, creación exclusiva"]
     MAT[("Carpeta de material indicada")]
@@ -42,9 +42,11 @@ flowchart TD
     STATE --> DB
 ```
 
+La jerarquía declarada por el catálogo es `coordinador` → cinco agentes primarios (`personal`, `universidad`, `sistemas`, `negocios`, `investigacion`) → agentes secundarios. El coordinador delega solo a primarios y cada primario solo a secundarios. Los IDs, asignaciones y responsabilidades canónicos están en [catalogo.md](catalogo.md) y `registry/agents.json`; este runtime consume esos registros sin imponerlos a otros harnesses.
+
 ## Persistencia y recuperación
 
-`src/estado.mjs` abre `AI_DATA_DIR/estado.sqlite` con el módulo incorporado `node:sqlite`; crea el directorio con permisos de propietario y activa WAL, claves foráneas y timeout SQLite. El esquema v2 conserva los datos de v1 y añade historial de memoria. Las tablas principales son:
+`runtime/node/estado.mjs` abre `AI_DATA_DIR/estado.sqlite` con el módulo incorporado `node:sqlite`; crea el directorio con permisos de propietario y activa WAL, claves foráneas y timeout SQLite. El esquema v2 conserva los datos de v1 y añade historial de memoria. Las tablas principales son:
 
 - `jobs`: payload canónico, clave idempotente opcional, estados, resultado/error, intentos y lease con token y vencimiento. Un payload distinto con la misma clave causa conflicto.
 - `events`: pasos de agente y eventos asociados a cada job.
@@ -70,11 +72,11 @@ La memoria puede guardarse, buscarse, listarse y olvidarse por CLI; el API lista
 | GET/POST | `/memory` | Lista/busca o registra una preferencia del usuario. |
 | GET/POST | `/schedules` | Consulta o crea/reemplaza una programación por intervalo. |
 
-`src/capacidades.mjs` conecta las herramientas de lectura/cálculo con memoria, integración y propuestas. `proponer_archivo` solo acepta un nombre simple, sin carpetas, con extensión `.md`, `.txt`, `.json` o `.csv`, y contenido de hasta 64 KiB. Aplicar una aprobación escribe de forma exclusiva bajo `artifacts/`; un archivo existente con contenido diferente no se sobrescribe. La propuesta pasa a aprobada antes de escribir; una interrupción en ese intervalo puede requerir reintento manual. Los permisos del API token equivalen a acceso a todas las rutas expuestas; no hay identidad por rol ni control por usuario. El endpoint de aprobación invoca aplicación directamente al recibir `approve`, así que debe exponerse solo a quien pueda autorizar esos artefactos.
+`tools/capacidades.mjs` conecta las herramientas de lectura/cálculo con memoria, integración y propuestas. `proponer_archivo` solo acepta un nombre simple, sin carpetas, con extensión `.md`, `.txt`, `.json` o `.csv`, y contenido de hasta 64 KiB. Aplicar una aprobación escribe de forma exclusiva bajo `artifacts/`; un archivo existente con contenido diferente no se sobrescribe. La propuesta pasa a aprobada antes de escribir; una interrupción en ese intervalo puede requerir reintento manual. Los permisos del API token equivalen a acceso a todas las rutas expuestas; no hay identidad por rol ni control por usuario. El endpoint de aprobación invoca aplicación directamente al recibir `approve`, así que debe exponerse solo a quien pueda autorizar esos artefactos.
 
 ## Integraciones
 
-`src/integraciones.mjs` implementa consultas HTTP GET con rutas restringidas del manifiesto, sin redirecciones, límite de respuesta de 128 KiB, timeout y requisito HTTPS para hosts remotos. `consultar_integracion` no crea ni modifica datos externos. Para MCP, `src/mcp.mjs` inicia un ejecutable local por stdio sin shell, con `AI_MCP_EXECUTABLE` absoluto y URI de recurso elegida por alias declarado; negocia `initialize`, notifica que terminó la inicialización y solicita `resources/read`, valida la respuesta de texto y corta el proceso al terminar. No llama herramientas MCP ni acepta que el modelo suministre una URI libre. La conexión requiere habilitar/configurar el manifiesto y el ejecutable local. `convertir_documento` usa MarkItDown para los documentos y Tesseract con el idioma español para OCR de imágenes PNG y JPEG. Ambos adaptadores se instalan en el host cuando se necesitan. `economia_unitaria` invoca el script local de Founder Skill con un objeto `datos` y JSON temporal. Las credenciales dependen de variables configuradas; las integraciones HTTP apagadas no demuestran autenticación.
+`integrations/api/index.mjs` implementa consultas HTTP GET con rutas restringidas del manifiesto, sin redirecciones, límite de respuesta de 128 KiB, timeout y requisito HTTPS para hosts remotos. `consultar_integracion` no crea ni modifica datos externos. Para MCP, `integrations/mcp/client.mjs` inicia un ejecutable local por stdio sin shell, con `AI_MCP_EXECUTABLE` absoluto y URI de recurso elegida por alias declarado; negocia `initialize`, notifica que terminó la inicialización y solicita `resources/read`, valida la respuesta de texto y corta el proceso al terminar. No llama herramientas MCP ni acepta que el modelo suministre una URI libre. La conexión requiere habilitar/configurar el manifiesto y el ejecutable local. `convertir_documento` usa MarkItDown para los documentos y Tesseract con el idioma español para OCR de imágenes PNG y JPEG. Ambos adaptadores se instalan en el host cuando se necesitan. `economia_unitaria` invoca el script local de Founder Skill con un objeto `datos` y JSON temporal. Las credenciales dependen de variables configuradas; las integraciones HTTP apagadas no demuestran autenticación.
 
 `registry/plugins.json` incluye `revision-documental`, cuyo `plugin.json` agrega un flujo para investigador y revisor. Este complemento es configuración local, no descarga código ni concede acceso adicional.
 

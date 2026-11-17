@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, symlink, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { crearHerramientas } from '../src/herramientas.mjs';
+import { crearHerramientas } from '../tools/herramientas.mjs';
 
 test('tools constrain routes, hide sensitive names, and bound inputs', async t => {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'herramientas-'));

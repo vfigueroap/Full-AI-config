@@ -1,6 +1,6 @@
 # Qué incorporamos de los favoritos de Vicente
 
-Los clones de investigación se conservan en el directorio padre. Estos enlaces apuntan a las revisiones concretas que influyeron en el código desplegable.
+Los clones de investigación se conservan fuera de este repositorio. Estos enlaces apuntan a revisiones concretas que influyeron en el catálogo o el runtime opcional.
 
 | Fuente | Qué usa AI | Cómo comprobarlo |
 | --- | --- | --- |
@@ -13,4 +13,4 @@ Los clones de investigación se conservan en el directorio padre. Estos enlaces 
 | [Founder Skill](https://github.com/Jakeschincariol/founder-skill/blob/fd9385b0cfe1b96bebce3898fbd506d73eff5a9d/skills/founder-cfo/unit_economics.py) | El agente financiero puede ejecutar la calculadora original y usar sus resultados en el análisis. | La prueba de integración verifica margen y punto de equilibrio con Python real. |
 | [MarkItDown](https://github.com/microsoft/markitdown/tree/ed178952a6672abdfd35b5f9e76a80b6cefc086e) | Adaptador opcional para convertir documentos locales a texto mediante el módulo instalado. | Instala los extras de tus formatos en el intérprete de `AI_PYTHON` e ingiere un documento. |
 
-El registro comparativo de los 60 favoritos se conserva en `research/revision.md`, junto al repositorio de AI. Incluye los commits y los archivos candidatos para futuras ampliaciones.
+El inventario portable de los 60 favoritos está en [favoritos.json](favoritos.json). Los commits y archivos incorporados se registran en [THIRD_PARTY.md](../THIRD_PARTY.md); los clones fuente no forman parte de este repositorio.

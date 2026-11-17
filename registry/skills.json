@@ -51,7 +51,21 @@
     "path": "skills/analisis-riesgos/SKILL.md",
     "description": "Documenta activos, límites de confianza, amenazas y mitigaciones del servicio.",
     "resources": [
-      "third_party/cybersecurity-skills/template.md"
+      "skills/analisis-riesgos/references/template.md",
+      "skills/analisis-riesgos/references/LICENSE",
+      "skills/analisis-riesgos/references/ORIGEN.md"
     ]
+  },
+  "agent-evaluation": {
+    "path": "skills/agent-evaluation/SKILL.md",
+    "description": "Diseña evaluaciones reproducibles para comparar agentes, prompts o cambios con criterios observables."
+  },
+  "harness-adaptation": {
+    "path": "skills/harness-adaptation/SKILL.md",
+    "description": "Adapta agentes y herramientas a otro harness sin atribuir capacidades inexistentes."
+  },
+  "agent-evolution": {
+    "path": "skills/agent-evolution/SKILL.md",
+    "description": "Propone cambios acotados a partir de fallos observados y comparaciones verificables."
   }
 }

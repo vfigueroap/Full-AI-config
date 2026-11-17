@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { crearIntegraciones } from '../src/integraciones.mjs';
+import { crearIntegraciones } from '../integrations/api/index.mjs';
 
 test('MCP abre el servidor configurado y lee exclusivamente el recurso autorizado', async () => {
   const server = `require('node:readline').createInterface({input:process.stdin}).on('line', raw => {

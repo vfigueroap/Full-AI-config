@@ -1,0 +1,20 @@
+{
+  "descripcion": "Analiza código y requisitos en paralelo y entrega una propuesta técnica integrada y revisada.",
+  "pasos": [
+    {
+      "agente": "desarrollador",
+      "depende_de": []
+    },
+    {
+      "agente": "investigador",
+      "depende_de": []
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "desarrollador",
+        "investigador"
+      ]
+    }
+  ]
+}

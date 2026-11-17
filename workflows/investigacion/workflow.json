@@ -1,0 +1,22 @@
+{
+  "descripcion": "Investiga materiales, redacta una respuesta y entrega su versión final revisada.",
+  "pasos": [
+    {
+      "agente": "investigador",
+      "depende_de": []
+    },
+    {
+      "agente": "redactor",
+      "depende_de": [
+        "investigador"
+      ]
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "investigador",
+        "redactor"
+      ]
+    }
+  ]
+}

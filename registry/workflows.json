@@ -1,11 +1,38 @@
 {
-  "investigacion":{"descripcion":"Investiga materiales, redacta una respuesta y entrega su versión final revisada.","pasos":[{"agente":"investigador","depende_de":[]},{"agente":"redactor","depende_de":["investigador"]},{"agente":"revisor","depende_de":["investigador","redactor"]}]},
-  "planificacion":{"descripcion":"Prepara y entrega un plan revisado con pasos y criterios verificables.","pasos":[{"agente":"planificador","depende_de":[]},{"agente":"revisor","depende_de":["planificador"]}]},
-  "sintesis":{"descripcion":"Resume el material aportado con referencias breves.","pasos":[{"agente":"investigador","depende_de":[]},{"agente":"redactor","depende_de":["investigador"]}]},
-  "estudio":{"descripcion":"Consulta materiales disponibles y entrega una explicación didáctica con ejemplos y práctica.","pasos":[{"agente":"investigador","depende_de":[]},{"agente":"tutor","depende_de":["investigador"]},{"agente":"revisor","depende_de":["investigador","tutor"]}]},
-  "software":{"descripcion":"Analiza código y requisitos en paralelo y entrega una propuesta técnica integrada y revisada.","pasos":[{"agente":"desarrollador","depende_de":[]},{"agente":"investigador","depende_de":[]},{"agente":"revisor","depende_de":["desarrollador","investigador"]}]},
-  "finanzas":{"descripcion":"Analiza movimientos o presupuesto aportados con cálculos y salvedades.","pasos":[{"agente":"analista-financiero","depende_de":[]},{"agente":"revisor","depende_de":["analista-financiero"]}]},
-  "morning-routine":{"descripcion":"Ordena compromisos y prioridades del día a partir de datos autorizados.","pasos":[{"agente":"personal","depende_de":[]},{"agente":"planificador","depende_de":["personal"]},{"agente":"revisor","depende_de":["planificador"]}]},
-  "weekly-review":{"descripcion":"Revisa avances y pendientes para proponer prioridades semanales.","pasos":[{"agente":"personal","depende_de":[]},{"agente":"memoria","depende_de":["personal"]},{"agente":"planificador","depende_de":["memoria"]},{"agente":"revisor","depende_de":["planificador"]}]},
-  "project-monitoring":{"descripcion":"Resume evidencia de proyecto, riesgos y próximos pasos verificables.","pasos":[{"agente":"desarrollador","depende_de":[]},{"agente":"investigador","depende_de":[]},{"agente":"planificador","depende_de":["desarrollador","investigador"]},{"agente":"revisor","depende_de":["planificador"]}]}
+  "investigacion": {
+    "path": "workflows/investigacion/workflow.json",
+    "description": "Investiga materiales, redacta una respuesta y entrega su versión final revisada."
+  },
+  "planificacion": {
+    "path": "workflows/planificacion/workflow.json",
+    "description": "Prepara y entrega un plan revisado con pasos y criterios verificables."
+  },
+  "sintesis": {
+    "path": "workflows/sintesis/workflow.json",
+    "description": "Resume el material aportado con referencias breves."
+  },
+  "estudio": {
+    "path": "workflows/estudio/workflow.json",
+    "description": "Consulta materiales disponibles y entrega una explicación didáctica con ejemplos y práctica."
+  },
+  "software": {
+    "path": "workflows/software/workflow.json",
+    "description": "Analiza código y requisitos en paralelo y entrega una propuesta técnica integrada y revisada."
+  },
+  "finanzas": {
+    "path": "workflows/finanzas/workflow.json",
+    "description": "Analiza movimientos o presupuesto aportados con cálculos y salvedades."
+  },
+  "morning-routine": {
+    "path": "workflows/morning-routine/workflow.json",
+    "description": "Ordena compromisos y prioridades del día a partir de datos autorizados."
+  },
+  "weekly-review": {
+    "path": "workflows/weekly-review/workflow.json",
+    "description": "Revisa avances y pendientes para proponer prioridades semanales."
+  },
+  "project-monitoring": {
+    "path": "workflows/project-monitoring/workflow.json",
+    "description": "Resume evidencia de proyecto, riesgos y próximos pasos verificables."
+  }
 }

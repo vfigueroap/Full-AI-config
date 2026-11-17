@@ -1,0 +1,5 @@
+[
+  {"id":"documento","split":"train","objective":"Resume el documento aportado y cita sus fuentes.","primary":"investigacion","secondary":"investigador"},
+  {"id":"estudio","split":"train","objective":"Ayúdame a preparar una prueba de cálculo usando estos ejercicios.","primary":"universidad","secondary":"tutor"},
+  {"id":"presupuesto","split":"holdout","objective":"Compara mis ingresos y gastos y explica el resultado.","primary":"negocios","secondary":"analista-financiero"}
+]

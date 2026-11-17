@@ -1,0 +1,21 @@
+{
+  "descripcion": "Ordena compromisos y prioridades del día a partir de datos autorizados.",
+  "pasos": [
+    {
+      "agente": "personal",
+      "depende_de": []
+    },
+    {
+      "agente": "planificador",
+      "depende_de": [
+        "personal"
+      ]
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "planificador"
+      ]
+    }
+  ]
+}

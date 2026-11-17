@@ -1,0 +1,22 @@
+{
+  "descripcion": "Consulta materiales disponibles y entrega una explicación didáctica con ejemplos y práctica.",
+  "pasos": [
+    {
+      "agente": "investigador",
+      "depende_de": []
+    },
+    {
+      "agente": "tutor",
+      "depende_de": [
+        "investigador"
+      ]
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "investigador",
+        "tutor"
+      ]
+    }
+  ]
+}

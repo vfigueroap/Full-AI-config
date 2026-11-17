@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ejecutar } from '../src/orquestador.mjs';
+import { ejecutar } from '../runtime/node/orquestador.mjs';
 
 const salida = texto => JSON.stringify({ tipo: 'resultado', texto });
 const agentes = {

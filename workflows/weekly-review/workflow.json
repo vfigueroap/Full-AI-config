@@ -1,0 +1,27 @@
+{
+  "descripcion": "Revisa avances y pendientes para proponer prioridades semanales.",
+  "pasos": [
+    {
+      "agente": "personal",
+      "depende_de": []
+    },
+    {
+      "agente": "memoria",
+      "depende_de": [
+        "personal"
+      ]
+    },
+    {
+      "agente": "planificador",
+      "depende_de": [
+        "memoria"
+      ]
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "planificador"
+      ]
+    }
+  ]
+}

@@ -1,34 +1,39 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { cargarCatalogo } from '../src/catalogo.mjs';
+import { cargarCatalogo } from '../runtime/node/catalogo.mjs';
 
 const raiz = path.resolve(import.meta.dirname, '..');
 
-test('carga las skills y las referencias a agentes del catálogo real', async () => {
-  const catalogo = await cargarCatalogo(raiz);
-  assert.match(catalogo.agentes.investigador.skill, /name: investigar/);
-  assert.ok(catalogo.flujos.investigacion.pasos.some(p => p.agente === 'investigador' && !p.depende_de.length));
+test('todas las skills tienen un especialista secundario alcanzable y recursos portables', async () => {
+  const c = await cargarCatalogo(raiz);
+  assert.match(c.agentes.investigador.skill, /name: investigar/);
+  for (const id of Object.keys(c.skills)) assert.ok(Object.values(c.agentes).some(a => a.role === 'secondary' && a.skills.includes(id)));
+  const visited = new Set();
+  const walk = id => { visited.add(id); c.agentes[id].delegates.forEach(walk); };
+  walk('coordinador');
+  assert.equal(visited.size, Object.keys(c.agentes).length);
+  assert.ok(c.agentes.coordinador.delegates.every(id => c.agentes[id].role === 'primary'));
 });
 
-test('rechaza ids inválidos y ciclos en flujos', async () => {
+test('rechaza ciclos de flujos, delegaciones fuera de nivel y skills huérfanas', async t => {
   const temporal = await mkdtemp(path.join(tmpdir(), 'ia-catalogo-'));
-  try {
-    await mkdir(path.join(temporal, 'config'), { recursive: true });
-    await mkdir(path.join(temporal, 'skills', 'x'), { recursive: true });
-    await writeFile(path.join(temporal, 'skills', 'x', 'SKILL.md'), 'skill');
-    const perfil = { nombre: 'X', descripcion: 'Agente', skill: 'x', herramientas: [] };
-    await writeFile(path.join(temporal, 'config', 'agentes.json'), JSON.stringify({ x: perfil, coordinador: perfil }));
-    const flujosPath = path.join(temporal, 'config', 'flujos.json');
-    await writeFile(flujosPath, JSON.stringify({ 'flujo malo': { descripcion: 'Inválido', pasos: [{ agente: 'x', depende_de: [] }] } }));
-    await assert.rejects(cargarCatalogo(temporal), /Id de flujo inválido/);
-    await writeFile(flujosPath, JSON.stringify({ f: { descripcion: 'Cíclico', pasos: [{ agente: 'x', depende_de: ['x'] }] } }));
-    await assert.rejects(cargarCatalogo(temporal), /Ciclo/);
-    await writeFile(flujosPath, JSON.stringify({ f: { descripcion: 'Rol ajeno', pasos: [{ agente: 'constructor', depende_de: [] }] } }));
-    await assert.rejects(cargarCatalogo(temporal), /Agente inválido/);
-  } finally {
-    await rm(temporal, { recursive: true, force: true });
-  }
+  t.after(() => rm(temporal, {recursive:true,force:true}));
+  for (const dir of ['registry','agents','skills','plugins','workflows']) await cp(path.join(raiz, dir), path.join(temporal, dir), {recursive:true});
+  const ap=path.join(temporal,'registry/agents.json');
+  const agentes=JSON.parse(await readFile(ap,'utf8'));
+  agentes.coordinador.delegates.push('investigador');
+  await writeFile(ap,JSON.stringify(agentes));
+  await assert.rejects(cargarCatalogo(temporal),/Delegación fuera de nivel/);
+  agentes.coordinador.delegates.pop();
+  for(const a of Object.values(agentes)) if(a.role==='secondary') a.skills=a.skills.filter(s=>s!=='investigar');
+  await writeFile(ap,JSON.stringify(agentes));
+  await assert.rejects(cargarCatalogo(temporal),/Skill sin responsable secundario/);
+  await cp(path.join(raiz,'registry/agents.json'),ap);
+  const fp=path.join(temporal,'workflows/sintesis/workflow.json');
+  const f=JSON.parse(await readFile(fp,'utf8'));f.pasos[0].depende_de=['redactor'];
+  await writeFile(fp,JSON.stringify(f));
+  await assert.rejects(cargarCatalogo(temporal),/Ciclo/);
 });

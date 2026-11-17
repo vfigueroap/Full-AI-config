@@ -1,0 +1,15 @@
+{
+  "descripcion": "Resume el material aportado con referencias breves.",
+  "pasos": [
+    {
+      "agente": "investigador",
+      "depende_de": []
+    },
+    {
+      "agente": "redactor",
+      "depende_de": [
+        "investigador"
+      ]
+    }
+  ]
+}

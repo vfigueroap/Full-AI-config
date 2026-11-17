@@ -3,13 +3,13 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { loadEnvFile } from 'node:process';
-import { cargarCatalogo } from './src/catalogo.mjs';
-import { crearHerramientas } from './src/herramientas.mjs';
-import { crearCliente, ErrorDeModelo } from './src/modelo.mjs';
-import { ejecutar } from './src/orquestador.mjs';
-import { abrirEstado } from './src/estado.mjs';
-import { aplicarAprobacion, ingerir } from './src/capacidades.mjs';
-import { crearServidor, procesarSiguiente } from './src/servicio.mjs';
+import { cargarCatalogo } from './runtime/node/catalogo.mjs';
+import { crearHerramientas } from './tools/herramientas.mjs';
+import { crearCliente, ErrorDeModelo } from './runtime/node/modelo.mjs';
+import { ejecutar } from './runtime/node/orquestador.mjs';
+import { abrirEstado } from './runtime/node/estado.mjs';
+import { aplicarAprobacion, ingerir } from './tools/capacidades.mjs';
+import { crearServidor, procesarSiguiente } from './runtime/node/servicio.mjs';
 
 const raiz = import.meta.dirname;
 try { loadEnvFile(path.join(raiz, '.env')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
@@ -41,7 +41,7 @@ async function main() {
   const catalogo = await cargarCatalogo(raiz);
   if (values.flujo !== undefined && !Object.hasOwn(catalogo.flujos, values.flujo)) throw new Error('Flujo desconocido.');
   if (comando === 'catalogo') {
-    const agentes = Object.entries(catalogo.agentes).map(([id, a]) => ({ id, nombre: a.nombre, descripcion: a.descripcion, herramientas: a.herramientas, delegates: a.delegates, model_tier: a.modelTier }));
+    const agentes = Object.entries(catalogo.agentes).map(([id, a]) => ({ id, nombre: a.nombre, role:a.role, descripcion: a.descripcion, skills:a.skills, herramientas: a.herramientas, delegates: a.delegates, model_tier: a.modelTier }));
     if (values.json) return imprimir({ agentes, flujos: catalogo.flujos });
     console.log(agentes.map(a => a.id + ' · ' + a.descripcion).join('\n'));
     console.log('\nFlujos: ' + Object.keys(catalogo.flujos).join(', ')); return;

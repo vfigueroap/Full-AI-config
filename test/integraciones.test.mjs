@@ -4,7 +4,7 @@ import { createServer } from 'node:http';
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { crearIntegraciones } from '../src/integraciones.mjs';
+import { crearIntegraciones } from '../integrations/api/index.mjs';
 
 async function server(t, handler) {
   const http = createServer(handler);

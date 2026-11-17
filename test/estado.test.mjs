@@ -4,7 +4,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { abrirEstado } from '../src/estado.mjs';
+import { abrirEstado } from '../runtime/node/estado.mjs';
 import { supersededAt } from '../third_party/agentmemory/memory-utils.mjs';
 
 async function carpeta() {

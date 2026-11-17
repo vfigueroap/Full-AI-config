@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { cargarCatalogo } from '../src/catalogo.mjs';
-import { ejecutar } from '../src/orquestador.mjs';
+import { cargarCatalogo } from '../runtime/node/catalogo.mjs';
+import { ejecutar } from '../runtime/node/orquestador.mjs';
 
 const raiz = path.resolve(import.meta.dirname, '..');
 const resultado = texto => JSON.stringify({ tipo: 'resultado', texto });

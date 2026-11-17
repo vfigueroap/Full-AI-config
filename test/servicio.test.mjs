@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { abrirEstado } from '../src/estado.mjs';
-import { cargarCatalogo } from '../src/catalogo.mjs';
-import { crearServidor, procesarSiguiente, contextoRecuperado } from '../src/servicio.mjs';
-import { aplicarAprobacion, ingerir } from '../src/capacidades.mjs';
+import { abrirEstado } from '../runtime/node/estado.mjs';
+import { cargarCatalogo } from '../runtime/node/catalogo.mjs';
+import { crearServidor, procesarSiguiente, contextoRecuperado } from '../runtime/node/servicio.mjs';
+import { aplicarAprobacion, ingerir } from '../tools/capacidades.mjs';
 
 test('HTTP → cola → especialista → propuesta → aprobación humana → archivo persistente', async t => {
   const directorio = await mkdtemp(path.join(tmpdir(), 'ai-servicio-'));
@@ -30,13 +30,14 @@ test('HTTP → cola → especialista → propuesta → aprobación humana → ar
   assert.equal((await (await api('/jobs', body)).json()).id, trabajo.id);
   const llamar = async ({ agente, mensajes }) => {
     const entrada = JSON.parse(mensajes.at(-1).content);
-    if (agente === 'coordinador' && !entrada.agente) return JSON.stringify({ tipo:'delegar', agente:'redactor', objetivo:'Prepara un archivo' });
+    if (agente === 'coordinador' && !entrada.agente) return JSON.stringify({ tipo:'delegar', agente:'investigacion', objetivo:'Prepara un archivo' });
+    if (agente === 'investigacion' && !entrada.agente) return JSON.stringify({ tipo:'delegar', agente:'redactor', objetivo:'Redacta el acta' });
     if (agente === 'redactor' && !entrada.herramienta) return JSON.stringify({ tipo:'herramienta', nombre:'proponer_archivo', argumentos:{ ruta:'reunion.md', contenido:'Acta del lunes' } });
     return JSON.stringify({ tipo:'resultado', texto:'Acta pendiente de aprobación.' });
   };
   const fin = await procesarSiguiente({ estado, catalogo, llamar });
   assert.equal(fin.status, 'completed', fin.error);
-  assert.equal(fin.resultado.llamadas, 4);
+  assert.equal(fin.resultado.llamadas, 6);
   assert.ok((await (await api('/jobs/' + trabajo.id)).json()).eventos.some(e => e.tipo === 'delegacion'));
   const archivo = path.join(directorio, 'artifacts/reunion.md');
   await assert.rejects(readFile(archivo), { code:'ENOENT' });

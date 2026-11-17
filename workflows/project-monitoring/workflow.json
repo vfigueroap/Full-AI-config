@@ -1,0 +1,26 @@
+{
+  "descripcion": "Resume evidencia de proyecto, riesgos y próximos pasos verificables.",
+  "pasos": [
+    {
+      "agente": "desarrollador",
+      "depende_de": []
+    },
+    {
+      "agente": "investigador",
+      "depende_de": []
+    },
+    {
+      "agente": "planificador",
+      "depende_de": [
+        "desarrollador",
+        "investigador"
+      ]
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "planificador"
+      ]
+    }
+  ]
+}

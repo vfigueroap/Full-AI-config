@@ -1,6 +1,6 @@
 # Revisión de referencias locales
 
-Inspección de clones existentes bajo `../../research/upstream/`; no se descargó software. Las copias exactas, commits y licencias se listan en [THIRD_PARTY.md](../THIRD_PARTY.md).
+Revisión de las fuentes y commits registrados en el inventario local; los clones de investigación se mantienen fuera de este repositorio. No se descargó software durante esta revisión. Las copias exactas, commits y licencias se listan en [THIRD_PARTY.md](../THIRD_PARTY.md); el resumen funcional está en [aportes.md](aportes.md).
 
 | Archivo fuente | Qué aporta | Adaptación aplicada a instrucciones locales |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ Inspección de clones existentes bajo `../../research/upstream/`; no se descarg�
 
 ## Alcance de los manifiestos
 
-Los manifiestos describen agentes, skills, tools, integraciones, plugins y workflows. `src/capacidades.mjs` conecta memoria y propuestas; `src/integraciones.mjs` implementa HTTP GET, conversión local si MarkItDown está instalado, cálculo mediante Founder Skill y lectura limitada de recursos MCP por stdio. Las integraciones HTTP siguen apagadas por defecto. Solo consultan host configurado por operador y prefijos permitidos. Supabase usa Bearer + `apikey`, Immich `x-api-key` y Nextcloud Basic con usuario y contraseña de aplicación. Se exige HTTPS fuera de loopback; errores del proveedor no se pasan al modelo. MCP lee recursos de texto por alias explícito, no ejecuta herramientas remotas.
+Los manifiestos describen agentes, skills, tools, integraciones, plugins y workflows. `tools/capacidades.mjs` conecta memoria y propuestas; `integrations/api/index.mjs` implementa HTTP GET, conversión local si MarkItDown está instalado, cálculo mediante Founder Skill y lectura limitada de recursos MCP por stdio. Las integraciones HTTP siguen apagadas por defecto. Solo consultan host configurado por operador y prefijos permitidos. Supabase usa Bearer + `apikey`, Immich `x-api-key` y Nextcloud Basic con usuario y contraseña de aplicación. Se exige HTTPS fuera de loopback; errores del proveedor no se pasan al modelo. MCP lee recursos de texto por alias explícito, no ejecuta herramientas remotas.
 
 ## Ejemplos que definen los esquemas
 

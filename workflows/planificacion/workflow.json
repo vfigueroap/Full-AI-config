@@ -1,0 +1,15 @@
+{
+  "descripcion": "Prepara y entrega un plan revisado con pasos y criterios verificables.",
+  "pasos": [
+    {
+      "agente": "planificador",
+      "depende_de": []
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "planificador"
+      ]
+    }
+  ]
+}

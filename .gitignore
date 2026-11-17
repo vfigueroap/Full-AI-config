@@ -14,3 +14,8 @@ __pycache__/
 floorplan/
 memory/private/
 knowledge/private/
+
+exports/
+evals/results/
+config/*.local.json
+*.bundle

@@ -1,0 +1,15 @@
+{
+  "descripcion": "Analiza movimientos o presupuesto aportados con cálculos y salvedades.",
+  "pasos": [
+    {
+      "agente": "analista-financiero",
+      "depende_de": []
+    },
+    {
+      "agente": "revisor",
+      "depende_de": [
+        "analista-financiero"
+      ]
+    }
+  ]
+}

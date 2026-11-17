@@ -1,6 +1,8 @@
 # Material de terceros
 
-La tabla identifica los archivos originales y las adaptaciones incorporadas al repositorio. Cada fuente conserva su archivo de licencia completo. Las referencias inspiran instrucciones locales; las copias de prompts no se cargan ni ejecutan como agentes del runtime.
+La licencia `LICENSE` en la raíz cubre el código propio de este repositorio. Los recursos de terceros incorporados conservan sus licencias específicas, indicadas en esta tabla y copiadas junto a los archivos cuando corresponde. Las referencias inspiran instrucciones locales; las copias de prompts no se cargan ni ejecutan como agentes del runtime.
+
+Las rutas `research/upstream/...` de la columna de fuente identifican el clon usado para registrar origen y commit. La copia publicada contiene los archivos necesarios en `third_party`. La licencia MIT del código propio atribuye el copyright a `vfigueroap` y los recursos incorporados mantienen sus avisos específicos.
 
 | Fuente | Commit del clon | Licencia | Archivos copiados |
 | --- | --- | --- | --- |
@@ -26,7 +28,7 @@ Las copias de prompts originales quedan separadas de `agents/` y `skills/`; no d
 
 ## Dependencias de ejecución locales
 
-- `../third_party/founder-skill/unit_economics.py` es llamado por `src/integraciones.mjs` con el intérprete Python configurado; su licencia MIT está en `../third_party/founder-skill/LICENSE`. No se importó su framework de agentes.
-- `../../research/upstream/markitdown` no está copiado en este árbol; `src/integraciones.mjs` invoca `python -m markitdown` si se instala por separado. La copia upstream local declara MIT. La conversión no queda disponible solo por tener el adaptador.
+- `../third_party/founder-skill/unit_economics.py` es llamado por `integrations/api/index.mjs` con el intérprete Python configurado; su licencia MIT está en `../third_party/founder-skill/LICENSE`. No se importó su framework de agentes.
+- MarkItDown no está copiado en este árbol; `integrations/api/index.mjs` invoca `python -m markitdown` si se instala por separado. La referencia revisada declara MIT. La conversión no queda disponible solo por tener el adaptador.
 
 Las incorporaciones funcionales y sus fuentes enlazadas están en [Aportes al asistente](docs/aportes.md).
